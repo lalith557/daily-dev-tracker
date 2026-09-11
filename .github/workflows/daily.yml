@@ -1,12 +1,8 @@
-```yaml
 name: Daily Dev Tracker
 
 on:
   schedule:
-    # Runs every day at 18:30 UTC
     - cron: "30 18 * * *"
-
-  # Allows you to run it manually from GitHub
   workflow_dispatch:
 
 permissions:
@@ -41,4 +37,3 @@ jobs:
             git commit -m "Update daily activity"
             git push
           fi
-```
