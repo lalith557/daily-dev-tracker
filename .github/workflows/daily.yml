@@ -12,7 +12,7 @@ jobs:
 daily-tracker:
 runs-on: ubuntu-latest
 
-```
+
 steps:
   - name: Checkout repository
     uses: actions/checkout@v4
@@ -88,4 +88,3 @@ steps:
       git add status.json
       git commit -m "Update project status"
       git push origin HEAD:main
-```
