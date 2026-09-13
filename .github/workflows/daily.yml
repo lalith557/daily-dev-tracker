@@ -1,39 +1,91 @@
 name: Daily Dev Tracker
 
 on:
-  schedule:
-    - cron: "30 18 * * *"
-  workflow_dispatch:
+schedule:
+- cron: "30 18 * * *"
+workflow_dispatch:
 
 permissions:
-  contents: write
+contents: write
 
 jobs:
-  run-tracker:
-    runs-on: ubuntu-latest
+daily-tracker:
+runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+```
+steps:
+  - name: Checkout repository
+    uses: actions/checkout@v4
+    with:
+      fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+  - name: Set up Python
+    uses: actions/setup-python@v5
+    with:
+      python-version: "3.12"
 
-      - name: Run Daily Dev Tracker
-        run: python app.py
+  - name: Configure Git
+    run: |
+      git config user.name "Lalith"
+      git config user.email "gonalalith2005@gmail.com"
 
-      - name: Commit generated activity
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+  # 1
+  - name: Record activity
+    run: python app.py activity
 
-          git add activity.json
+  - name: Commit activity
+    run: |
+      git add activity.json
+      git commit -m "Record daily activity"
+      git push origin HEAD:main
 
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "Update daily activity"
-            git push origin HEAD:main
-          fi
+  # 2
+  - name: Update statistics
+    run: python app.py statistics
+
+  - name: Commit statistics
+    run: |
+      git add statistics.json
+      git commit -m "Update tracker statistics"
+      git push origin HEAD:main
+
+  # 3
+  - name: Update system information
+    run: python app.py system
+
+  - name: Commit system information
+    run: |
+      git add system_info.json
+      git commit -m "Update system information"
+      git push origin HEAD:main
+
+  # 4
+  - name: Generate daily summary
+    run: python app.py summary
+
+  - name: Commit daily summary
+    run: |
+      git add daily_summary.json
+      git commit -m "Generate daily summary"
+      git push origin HEAD:main
+
+  # 5
+  - name: Validate data
+    run: python app.py validate
+
+  - name: Commit validation
+    run: |
+      git add validation.json
+      git commit -m "Validate tracker data"
+      git push origin HEAD:main
+
+  # 6
+  - name: Update project status
+    run: python app.py status
+
+  - name: Commit status
+    run: |
+      git add status.json
+      git commit -m "Update project status"
+      git push origin HEAD:main
+```

@@ -1,41 +1,55 @@
-
 # Daily Dev Tracker 🐍
 
-A small Python project that runs automatically using GitHub Actions.
+A Python automation project that runs through GitHub Actions and maintains a structured history of development activity.
 
 ## What it does
 
-Every day, the project:
+The project automatically performs six stages during each daily workflow:
 
-1. Runs the Python program.
-2. Records the current date and time.
-3. Records the Python version and operating system.
-4. Saves the result to `activity.json`.
-5. Commits the updated data back to the repository.
+1. Records execution activity.
+2. Updates project statistics.
+3. Records the execution environment.
+4. Generates a daily summary.
+5. Validates stored activity data.
+6. Updates project status.
 
-## Running locally
-
-Make sure Python 3.10+ is installed.
-
-```bash
-python app.py
-```
+Each stage produces a separate change and is committed independently.
 
 ## Automatic execution
 
-GitHub Actions runs the program automatically every day.
+GitHub Actions runs the tracker automatically every day.
 
-You can also run it manually:
+The workflow can also be started manually:
 
 **GitHub → Actions → Daily Dev Tracker → Run workflow**
+
+## Running locally
+
+Python 3.10+ is recommended.
+
+```bash
+python app.py activity
+python app.py statistics
+python app.py system
+python app.py summary
+python app.py validate
+python app.py status
+```
 
 ## Project structure
 
 ```text
 daily-dev-tracker/
+│
 ├── app.py
 ├── activity.json
+├── statistics.json
+├── system_info.json
+├── daily_summary.json
+├── validation.json
+├── status.json
 ├── README.md
+│
 └── .github/
     └── workflows/
         └── daily.yml
@@ -47,3 +61,7 @@ daily-dev-tracker/
 * Git
 * GitHub Actions
 * JSON
+
+## Purpose
+
+This project demonstrates Python scripting, JSON data processing, Git automation, continuous integration workflows, scheduled execution, environment detection, validation, and automated repository updates.
