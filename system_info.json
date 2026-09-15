@@ -1,1 +1,9 @@
-{}
+{
+  "collected_at_utc": "2026-09-15T09:00:52.677595+00:00",
+  "python_version": "3.13.12",
+  "python_implementation": "CPython",
+  "operating_system": "Windows",
+  "os_release": "11",
+  "architecture": "AMD64",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel"
+}

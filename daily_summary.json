@@ -1,1 +1,14 @@
-{}
+{
+  "date": "2026-09-15",
+  "runs_today": 1,
+  "successful_runs_today": 1,
+  "failed_runs_today": 0,
+  "latest_run": {
+    "run_number": 5,
+    "date": "2026-09-15",
+    "time_utc": "09:00:42",
+    "python_version": "3.13.12",
+    "platform": "Windows",
+    "status": "success"
+  }
+}
