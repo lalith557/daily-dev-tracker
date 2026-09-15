@@ -68,14 +68,15 @@ save_json(STATS_FILE, statistics)
 print("Statistics updated.")
 
 def update_system():
-system_info = {
-"python_version": platform.python_version(),
-"python_implementation": platform.python_implementation(),
-"operating_system": platform.system(),
-"os_release": platform.release(),
-"architecture": platform.machine(),
-"processor": platform.processor()
-}
+    system_info = {
+        "collected_at_utc": datetime.now(timezone.utc).isoformat(),
+        "python_version": platform.python_version(),
+        "python_implementation": platform.python_implementation(),
+        "operating_system": platform.system(),
+        "os_release": platform.release(),
+        "architecture": platform.machine(),
+        "processor": platform.processor()
+    }
 
 save_json(SYSTEM_FILE, system_info)
 print("System information updated.")
