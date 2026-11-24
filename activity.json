@@ -758,5 +758,13 @@
     "python_version": "3.12.16",
     "platform": "Linux",
     "status": "success"
+  },
+  {
+    "run_number": 96,
+    "date": "2026-11-24",
+    "time_utc": "04:01:50",
+    "python_version": "3.12.16",
+    "platform": "Linux",
+    "status": "success"
   }
 ]
